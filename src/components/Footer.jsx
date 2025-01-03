@@ -1,13 +1,12 @@
 import React from 'react';
 import { MdLocationOn, MdPhone } from 'react-icons/md';
-import { FaInstagram, FaGithub } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-mila-sage/10 py-8 md:py-12">
+    <footer className="bg-mila-sage/10 py-6 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col space-y-8">
-          {/* Contact Information */}
+        <div className="flex flex-col space-y-6">
           <div className="space-y-4">
             <h3 className="font-bold text-lg mb-4">MILÂ STUDIO SPA</h3>
             <div className="space-y-3">
@@ -35,7 +34,7 @@ const Footer = () => {
 
           <div className="text-center text-sm text-gray-600 pt-4 border-t border-gray-200">
             <div className="flex items-center justify-center space-x-2">
-              <span>Developed by Mariana ♥</span>
+              <span>Developed by Mariana <span className="text-gray-900">♥</span></span>
             </div>
           </div>
         </div>

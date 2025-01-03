@@ -67,60 +67,86 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div className="pt-16 min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold mb-12">Os Nossos Serviços</h1>
+    <div className="min-h-screen bg-white">
+      <div className="max-w-7xl mx-auto px-4 py-4">
+        <h1 className="text-4xl font-bold mb-6">Os Nossos Serviços</h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <div key={index} className="bg-mila-beige/5 rounded-2xl overflow-hidden shadow-sm">
-              <div className="aspect-w-16 aspect-h-9 rounded-t-2xl overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-64 object-cover"
-                />
+          <div className="bg-mila-beige/5 rounded-2xl overflow-hidden shadow-sm">
+            <div className="aspect-w-16 aspect-h-9 rounded-t-2xl overflow-hidden">
+              <img
+                src={services[0].image}
+                alt={services[0].title}
+                className="w-full h-64 object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-2xl font-bold mb-3">{services[0].title}</h3>
+              <p className="text-gray-700 mb-4">{services[0].description}</p>
+              <div className="mb-4 space-y-3">
+                {services[0].types.map((type, idx) => (
+                  <div key={idx} className="border-b border-gray-200 pb-2">
+                    <h4 className="font-semibold text-mila-sage">{type.name}</h4>
+                    <p className="text-sm text-gray-600">{type.info}</p>
+                  </div>
+                ))}
               </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-                <p className="text-gray-700 mb-4">{service.description}</p>
+              <div className="space-y-2">
+                {services[0].prices.map((price, idx) => (
+                  <div key={idx} className="flex justify-between items-center border-b border-gray-200 py-2">
+                    <span className="font-medium">{price.duration}</span>
+                    <span className="font-bold text-mila-sage">{price.price}</span>
+                  </div>
+                ))}
+              </div>
+              <a
+                href="https://api.whatsapp.com/send/?phone=351912030345&text&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 bg-mila-sage text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition duration-300 inline-block"
+              >
+                Agendar
+              </a>
+            </div>
+          </div>
 
-                {service.types && (
-                  <div className="mb-4 space-y-3">
-                    {service.types.map((type, idx) => (
-                      <div key={idx} className="border-b border-gray-200 pb-2">
-                        <h4 className="font-semibold text-mila-sage">{type.name}</h4>
-                        <p className="text-sm text-gray-600">{type.info}</p>
+          <div className="space-y-8">
+            {services.slice(1).map((service, index) => (
+              <div key={index} className="bg-mila-beige/5 rounded-2xl overflow-hidden shadow-sm">
+                <div className="aspect-w-16 aspect-h-9 rounded-t-2xl overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-64 object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
+                  <p className="text-gray-700 mb-4">{service.description}</p>
+                  <div className="space-y-2">
+                    {service.prices.map((price, idx) => (
+                      <div key={idx} className="flex justify-between items-center border-b border-gray-200 py-2">
+                        <div>
+                          <span className="font-medium">{price.duration}</span>
+                          {price.subtitle && (
+                            <p className="text-sm text-gray-600">{price.subtitle}</p>
+                          )}
+                        </div>
+                        <span className="font-bold text-mila-sage">{price.price}</span>
                       </div>
                     ))}
                   </div>
-                )}
-
-                <div className="space-y-2">
-                  {service.prices.map((price, idx) => (
-                    <div key={idx} className="flex justify-between items-center border-b border-gray-200 py-2">
-                      <div>
-                        <span className="font-medium">{price.duration}</span>
-                        {price.subtitle && (
-                          <p className="text-sm text-gray-600">{price.subtitle}</p>
-                        )}
-                      </div>
-                      <span className="font-bold text-mila-sage">{price.price}</span>
-                    </div>
-                  ))}
+                  <a
+                    href="https://api.whatsapp.com/send/?phone=351912030345&text&type=phone_number&app_absent=0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 bg-mila-sage text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition duration-300 inline-block"
+                  >
+                    Agendar
+                  </a>
                 </div>
-
-                <a
-                  href="https://api.whatsapp.com/send/?phone=351912030345&text&type=phone_number&app_absent=0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 bg-mila-sage text-white px-6 py-2 rounded-full
-                    hover:bg-opacity-90 transition duration-300 inline-block"
-                >
-                  Agendar
-                </a>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
