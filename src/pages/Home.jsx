@@ -1,6 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero';
-import Services from '../components/Services';
+import Services from '../components/Services';  // Make sure this points to the component version
 import Reviews from '../components/Reviews';
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
     <div className="min-h-screen">
       <Hero />
       <Welcome />
-      <Services />
+      <Services />  {/* This will render the grid view */}
       <Reviews />
     </div>
   );

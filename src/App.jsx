@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { MdMenu, MdClose, MdKeyboardArrowUp } from 'react-icons/md';
 import Home from './pages/Home';
 import About from './pages/About';
-import Services from './pages/Services';
+import ServicesPage from './pages/ServicesPage';
 import Studio from './pages/Studio';
 import Footer from './components/Footer';
 
@@ -86,7 +86,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/sobre" element={<About />} />
-            <Route path="/servicos" element={<Services />} />
+            <Route path="/servicos" element={<ServicesPage />} />
             <Route path="/studio" element={<Studio />} />
           </Routes>
         </main>
