@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import { MdMenu, MdClose } from 'react-icons/md';
+import { MdMenu, MdClose, MdKeyboardArrowUp } from 'react-icons/md';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -10,6 +9,20 @@ import Footer from './components/Footer';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <Router>
@@ -17,12 +30,9 @@ function App() {
         <header className="fixed w-full bg-white/95 backdrop-blur-sm z-50">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex justify-between items-center h-16">
-              <div className="flex items-center space-x-2">
-                <ChevronDownIcon className="h-5 w-5" />
-                <Link to="/" className="font-medium hover:text-mila-sage transition-colors">
-                  MILÂ STUDIO SPA
-                </Link>
-              </div>
+              <Link to="/" className="font-medium hover:text-mila-sage transition-colors">
+                MILÂ STUDIO SPA
+              </Link>
 
               <nav className="hidden md:flex items-center space-x-8">
                 <Link to="/sobre" className="text-gray-800 hover:text-mila-sage transition-colors">Sobre</Link>
@@ -82,6 +92,16 @@ function App() {
         </main>
 
         <Footer />
+
+        {showScrollTop && (
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 bg-mila-sage/90 hover:bg-mila-sage text-white p-3 rounded-full shadow-lg transition-all duration-300"
+            aria-label="Scroll to top"
+          >
+            <MdKeyboardArrowUp className="h-6 w-6" />
+          </button>
+        )}
       </div>
     </Router>
   );
