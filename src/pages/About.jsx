@@ -7,12 +7,15 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <p className="text-gray-700 mb-6">
-              Nosso espaço é um refúgio de tranquilidade, projetado para
+              O nosso espaço é um refúgio de tranquilidade, projetado para
               proporcionar uma experiência única de bem-estar e relaxamento.
             </p>
             <p className="text-gray-700 mb-6">
               Combinamos técnicas tradicionais com tecnologias modernas para
               oferecer os melhores tratamentos estéticos e terapêuticos.
+
+              Proporcionamos uma experiência única de Head Spa, um tratamento inspirado em técnicas milenares de massagem oriental que surgiu no Japão há cerca de 20 anos como uma terapia para reduzir tensão muscular e stress acumulado. Através de movimentos capilares e da aplicação de pontos de pressão estratégicos na cabeça, proporciona uma sensação de relaxamento instantâneo.
+
             </p>
           </div>
           <div className="rounded-lg overflow-hidden">
