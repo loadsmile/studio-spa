@@ -2,24 +2,48 @@ import React from "react";
 const ServicesPage = () => {
   const services = [
     {
-      title: "Massagem Relaxante",
-      description: "A massagem relaxante libera um hormônio chamado ocitocina que combate a tensão muscular, auxilia no fluxo intestinal, estabiliza a pressão arterial e principalmente diminui o estresse. De modo geral, a massagem promove um profundo estado de relaxamento, diminui as suas dores musculares e cãibras, já que aumenta a circulação sanguínea e oxigena melhor as células.",
+      title: "Massagens",
+      description: "Oferecemos diversos tipos de massagens especializadas:",
+      types: [
+        {
+          name: "Massagem Relaxante",
+          info: "Libera ocitocina, combate tensão muscular, auxilia fluxo intestinal e diminui estresse. Promove relaxamento profundo e diminui dores musculares."
+        },
+        {
+          name: "Massagem Terapêutica",
+          info: "Indicada para dores musculares, contraturas e alívio de dores posturais. Pressão mais forte focada em necessidades específicas."
+        },
+        {
+          name: "Massagem Modeladora",
+          info: "Movimentos intensos e profundos para reorganizar camadas de gordura e harmonizar contornos corporais."
+        },
+        {
+          name: "Massagem Gestacional",
+          info: "Recomendada após 12 semanas de gestação. Combina drenagem linfática com foco em lombar e ciático."
+        },
+        {
+          name: "Drenagem Linfática",
+          info: "Combate inchaço e celulite, melhora circulação e elimina toxinas com movimentos suaves e rítmicos."
+        },
+        {
+          name: "Ventosa Terapêutica",
+          info: "Tratamento com ventosas para melhorar circulação sanguínea e oxigenação dos tecidos."
+        },
+        {
+          name: "Terapia com Pedras Quentes",
+          info: "Massagem relaxante combinando movimentos manuais com pedras quentes para acalmar mente e corpo."
+        },
+        {
+          name: "Reflexologia com SPA dos Pés",
+          info: "Massagem em pontos específicos dos pés combinada com esfoliação, máscara de argila e hidratação."
+        }
+      ],
       prices: [
         { duration: "40min", price: "39€" },
         { duration: "60min", price: "49€" },
         { duration: "80min", price: "59€" }
       ],
       image: "/images/massage.jpg"
-    },
-    {
-      title: "Massagem Terapêutica",
-      description: "A massagem terapêutica é a mais indicada para dores musculares, músculos com contraturas e aliviar o corpo de dores devido a má postura, esforços repetitivos ou cansaço dos exercícios de ginásio. A sessão é corpo inteiro com a pressão dos movimentos mais fortes e será focada na suas necessidades pontuais.",
-      prices: [
-        { duration: "40min", price: "39€" },
-        { duration: "60min", price: "49€" },
-        { duration: "80min", price: "59€" }
-      ],
-      image: "/images/spa.jpg"
     },
     {
       title: "Limpeza de Pele Facial",
@@ -48,15 +72,29 @@ const ServicesPage = () => {
         <h1 className="text-4xl font-bold mb-12">Nossos Serviços</h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="bg-mila-beige/5 rounded-lg overflow-hidden shadow-sm">
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-full h-64 object-cover"
-              />
+            <div key={index} className="bg-mila-beige/5 rounded-2xl overflow-hidden shadow-sm">
+              <div className="aspect-w-16 aspect-h-9 rounded-t-2xl overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-64 object-cover"
+                />
+              </div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
                 <p className="text-gray-700 mb-4">{service.description}</p>
+
+                {service.types && (
+                  <div className="mb-4 space-y-3">
+                    {service.types.map((type, idx) => (
+                      <div key={idx} className="border-b border-gray-200 pb-2">
+                        <h4 className="font-semibold text-mila-sage">{type.name}</h4>
+                        <p className="text-sm text-gray-600">{type.info}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 <div className="space-y-2">
                   {service.prices.map((price, idx) => (
                     <div key={idx} className="flex justify-between items-center border-b border-gray-200 py-2">
@@ -70,6 +108,7 @@ const ServicesPage = () => {
                     </div>
                   ))}
                 </div>
+
                 <a
                   href="https://api.whatsapp.com/send/?phone=351912030345&text&type=phone_number&app_absent=0"
                   target="_blank"
