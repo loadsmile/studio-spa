@@ -69,7 +69,7 @@ const ServicesPage = () => {
   return (
     <div className="pt-16 min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold mb-12">Nossos Serviços</h1>
+        <h1 className="text-4xl font-bold mb-12">Os Nossos Serviços</h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <div key={index} className="bg-mila-beige/5 rounded-2xl overflow-hidden shadow-sm">

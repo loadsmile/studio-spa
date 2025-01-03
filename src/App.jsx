@@ -30,14 +30,14 @@ function App() {
         <header className="fixed w-full bg-white/95 backdrop-blur-sm z-50">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex justify-between items-center h-16">
-              <Link to="/" className="font-medium hover:text-mila-sage transition-colors">
+              <Link to="/" className="text-xl font-extrabold tracking-wide hover:text-mila-sage transition-colors">
                 MILÂ STUDIO SPA
               </Link>
 
               <nav className="hidden md:flex items-center space-x-8">
-                <Link to="/sobre" className="text-gray-800 hover:text-mila-sage transition-colors">Sobre</Link>
-                <Link to="/servicos" className="text-gray-800 hover:text-mila-sage transition-colors">Serviços</Link>
-                <Link to="/studio" className="text-gray-800 hover:text-mila-sage transition-colors">Studio</Link>
+                <Link to="/sobre" className="font-semibold text-gray-800 hover:text-mila-sage transition-colors">Sobre</Link>
+                <Link to="/servicos" className="font-semibold text-gray-800 hover:text-mila-sage transition-colors">Serviços</Link>
+                <Link to="/studio" className="font-semibold text-gray-800 hover:text-mila-sage transition-colors">Studio</Link>
               </nav>
 
               <button
@@ -57,21 +57,21 @@ function App() {
                 <div className="flex flex-col space-y-4">
                   <Link
                     to="/sobre"
-                    className="text-gray-800 hover:text-mila-sage transition-colors"
+                    className="font-semibold text-gray-800 hover:text-mila-sage transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Sobre
                   </Link>
                   <Link
                     to="/servicos"
-                    className="text-gray-800 hover:text-mila-sage transition-colors"
+                    className="font-semibold text-gray-800 hover:text-mila-sage transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Serviços
                   </Link>
                   <Link
                     to="/studio"
-                    className="text-gray-800 hover:text-mila-sage transition-colors"
+                    className="font-semibold text-gray-800 hover:text-mila-sage transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Studio
